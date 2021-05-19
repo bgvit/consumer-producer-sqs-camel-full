@@ -31,12 +31,10 @@ public class TickerController {
     @GetMapping("markets")
     public ResponseEntity<List<Market>> findMarketsByCoinId(@RequestParam String id) {
         return tickerService.findMarketsByCoinId(id);
-
     }
 
     @GetMapping("social-stats")
     public ResponseEntity<CoinSocialStats> getSocialStatsByCoinId(@RequestParam String id) {
         return tickerService.findSocialStatsByCoinId(id);
-
     }
 }
