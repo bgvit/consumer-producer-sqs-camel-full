@@ -15,7 +15,7 @@ public class TickerRouteBuilder extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("{{application.queues.coin-url}}")
+        from("{{application.queues.consumer.coin-url}}")
         .unmarshal()
         .json(JsonLibrary.Jackson, Ticker.class)
         .process(tickerProcessor);

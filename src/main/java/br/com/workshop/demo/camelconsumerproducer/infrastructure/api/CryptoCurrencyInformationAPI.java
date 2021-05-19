@@ -23,7 +23,7 @@ import java.util.List;
 })
 public interface CryptoCurrencyInformationAPI {
 
-    @GetMapping("tickers/")
+    @GetMapping("tickers/?start=1&limit=2")
     ResponseEntity<AllCoins> getAllCoins();
 
     @RequestMapping("coin/markets/")

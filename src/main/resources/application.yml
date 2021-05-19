@@ -1,8 +1,13 @@
+server:
+  port: 8081
 application:
   cryptocurrency-information-api:
     url: https://api.coinlore.net/api/
   queues:
-    coin-url: 'aws2-sqs://teste2-queue?amazonSQSClient=#sqsClient&concurrentConsumers=1&maxMessagesPerPoll=10'
+    consumer:
+      coin-url: 'aws2-sqs://teste2-queue?amazonSQSClient=#sqsClient&concurrentConsumers=1&maxMessagesPerPoll=10'
+    producer:
+      market-url: 'aws2-sqs://teste1'
 
 pool:
   cryptocurrency-information-api:
@@ -14,7 +19,6 @@ pool:
 camel:
   component:
     aws2-sqs:
-      enabled: true
       proxy-host: 'sqs.us-west-2.amazonaws.com'
       proxy-port: 80
       region: 'us-west-2'

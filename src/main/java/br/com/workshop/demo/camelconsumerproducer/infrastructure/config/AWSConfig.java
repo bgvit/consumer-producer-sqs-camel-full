@@ -1,16 +1,12 @@
 package br.com.workshop.demo.camelconsumerproducer.infrastructure.config;
 
-
-import org.apache.camel.component.aws2.sqs.Sqs2Component;
-import org.apache.camel.component.aws2.sqs.Sqs2Configuration;
-
-import org.apache.camel.component.aws2.sqs.client.Sqs2ClientFactory;
-import org.apache.camel.component.aws2.sqs.client.Sqs2InternalClient;
 import org.springframework.beans.factory.annotation.Value;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import org.apache.camel.component.aws2.sqs.Sqs2Component;
+import org.apache.camel.component.aws2.sqs.Sqs2Configuration;
+import org.apache.camel.component.aws2.sqs.client.Sqs2ClientFactory;
+import org.apache.camel.component.aws2.sqs.client.Sqs2InternalClient;
 import software.amazon.awssdk.core.Protocol;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
@@ -39,6 +35,7 @@ public class AWSConfig {
         clientConfiguration.setProtocol(protocol);
         clientConfiguration.setProxyProtocol(Protocol.HTTP);
         clientConfiguration.setRegion(sqsRegion.toString());
+//        clientConfiguration.setConcurrentConsumers(50);
 
         Sqs2Component sqsComponent = new Sqs2Component();
         sqsComponent.setConfiguration(clientConfiguration);

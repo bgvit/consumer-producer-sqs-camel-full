@@ -13,4 +13,6 @@ public interface TickerService {
     ResponseEntity<List<Market>> findMarketsByCoinId(String id);
 
     ResponseEntity<CoinSocialStats> findSocialStatsByCoinId(String id);
+
+    void stressApplication();
 }

@@ -4,6 +4,7 @@ import br.com.workshop.demo.camelconsumerproducer.domain.model.external.cryptocu
 import br.com.workshop.demo.camelconsumerproducer.domain.model.external.cryptocurrencyapi.coinmarket.Market;
 import br.com.workshop.demo.camelconsumerproducer.domain.model.external.cryptocurrencyapi.globalinformation.AllCoins;
 import br.com.workshop.demo.camelconsumerproducer.domain.service.TickerService;
+import br.com.workshop.demo.camelconsumerproducer.infrastructure.api.CryptoCurrencyInformationAPI;
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -36,5 +37,10 @@ public class TickerController {
     @GetMapping("social-stats")
     public ResponseEntity<CoinSocialStats> getSocialStatsByCoinId(@RequestParam String id) {
         return tickerService.findSocialStatsByCoinId(id);
+    }
+
+    @GetMapping("stress")
+    public void stressProducerAndConsumer(){
+        tickerService.stressApplication();
     }
 }
